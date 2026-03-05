@@ -1,0 +1,66 @@
+#!/bin/bash
+
+
+ENV_FILE=".env"
+
+echo "Creando archivo .env interactivo con valores predeterminados..."
+
+
+prompt() {
+    local var_name="$1"
+    local default_value="$2"
+    read -p "$var_name [$default_value]: " input
+
+    if [ -z "$input" ]; then
+        echo "$default_value"
+    else
+        echo "$input"
+    fi
+}
+
+DISCORD_TOKEN_DEFAULT=""
+RCONPWD_DEFAULT=""
+MC_CONTAINER_DEFAULT="mc_server"
+MC_VOLUME_DEFAULT=""
+MC_PORT_TCP_DEFAULT="25565"
+MC_PORT_UDP_DEFAULT="25565"
+MC_IMAGE_DEFAULT="itzg/minecraft-server:latest"
+TYPE_DEFAULT="vanilla"
+VERSION_DEFAULT="1.21.1"
+MODLOADER_VERSION_DEFAULT="none"
+MEMORY_DEFAULT="4G"
+PUID_DEFAULT="1000"
+GUID_DEFAULT="1000"
+
+
+DISCORD_TOKEN=$(prompt "DISCORD_TOKEN" "$DISCORD_TOKEN_DEFAULT")
+RCONPWD=$(prompt "RCONPWD" "$RCONPWD_DEFAULT")
+MC_CONTAINER=$(prompt "MC_CONTAINER" "$MC_CONTAINER_DEFAULT")
+MC_VOLUME=$(prompt "MC_VOLUME" "$MC_VOLUME_DEFAULT")
+MC_PORT_TCP=$(prompt "MC_PORT_TCP" "$MC_PORT_TCP_DEFAULT")
+MC_PORT_UDP=$(prompt "MC_PORT_UDP" "$MC_PORT_UDP_DEFAULT")
+MC_IMAGE=$(prompt "MC_IMAGE" "$MC_IMAGE_DEFAULT")
+TYPE=$(prompt "TYPE" "$TYPE_DEFAULT")
+VERSION=$(prompt "VERSION" "$VERSION_DEFAULT")
+MODLOADER_VERSION=$(prompt "MODLOADER_VERSION" "$MODLOADER_VERSION_DEFAULT")
+MEMORY=$(prompt "MEMORY" "$MEMORY_DEFAULT")
+PUID=$(prompt "PUID" "$PUID_DEFAULT")
+GUID=$(prompt "GUID" "$GUID_DEFAULT")
+
+cat > "$ENV_FILE" <<EOL
+DISCORD_TOKEN=$DISCORD_TOKEN
+RCONPWD=$RCONPWD
+MC_CONTAINER=$MC_CONTAINER
+MC_VOLUME=$MC_VOLUME
+MC_PORT_TCP=$MC_PORT_TCP
+MC_PORT_UDP=$MC_PORT_UDP
+MC_IMAGE=$MC_IMAGE
+TYPE=$TYPE
+VERSION=$VERSION
+MODLOADER_VERSION=$MODLOADER_VERSION
+MEMORY=$MEMORY
+PUID=$PUID
+GUID=$GUID
+EOL
+
+echo ".env creado correctamente con valores predeterminados."
