@@ -47,19 +47,19 @@ Use the provided script to generate it:
 Fill in all required variables, including:
 
 ```
-DISCORD_TOKEN=
-RCONPWD=
-MC_CONTAINER=
-MC_VOLUME=
-MC_PORT_TCP=
-MC_PORT_UDP=
-MC_IMAGE=
-TYPE=
-VERSION=
-MODLOADER_VERSION=
-MEMORY=
-PUID=
-GUID=
+DISCORD_TOKEN=<your-token>
+RCONPWD=<your-password>
+MC_CONTAINER=minecraft-neoforge
+MC_VOLUME=~/minecraft:/data
+MC_PORT_TCP=25565:25565/tcp
+MC_PORT_UDP=25565:25565/udp
+MC_IMAGE=itzg/minecraft-server:java21
+TYPE=NEOFORGE
+VERSION=1.21.1
+MODLOADER_VERSION=21.1.218
+MEMORY=5G
+PUID=1000
+GUID=1000
 ```
 
 3. **Start the bot**:
