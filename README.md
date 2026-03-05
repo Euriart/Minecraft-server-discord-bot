@@ -44,7 +44,7 @@ Use the provided script to generate it:
 ./setup.sh
 ```
 
-Fill in all required variables, including:
+Fill in all required variables, including as example:
 
 ```
 DISCORD_TOKEN=<your-token>
