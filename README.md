@@ -97,7 +97,7 @@ Once the bot is running:
 * Use Discord commands to control the server.
 * Check server status anytime with `!status`.
 * Open or close the server with `!on` | `!off`.
-
+* You can also use the scripts in the rcon folder to open the administration console `./rcon.sh` or execute only one command `./rcon_arg.sh <command>`.
 ---
 
 ## Security Notes
