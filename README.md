@@ -111,6 +111,11 @@ Once the bot is running:
 
 ---
 
+## Special thanks
+
+Thanks to itzg for creating the docker image for the server.
+
+---
 ## License
 
 This project is licensed under the GPLv3 License.
