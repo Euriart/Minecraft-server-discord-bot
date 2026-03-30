@@ -3,8 +3,7 @@ services:
     build: .
     container_name: discord-mc-bot
     restart: unless-stopped
-    env_file:
-      - .env
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./.env:/app/.env:ro
+      - /Dock/docker/discord:/app/host_config:ro
+    pull_policy: if_not_present
