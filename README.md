@@ -57,9 +57,13 @@ MC_IMAGE=itzg/minecraft-server:java21
 TYPE=NEOFORGE
 VERSION=1.21.1
 MODLOADER_VERSION=21.1.218
-MEMORY=5G
+MEMORY=4G
 PUID=1000
 GUID=1000
+STARTUP_TIMEOUT=180
+STATUS=normal
+WATCH_INTERVAL=40
+AUTOSTOP_TIMEOUT_EST=240
 ```
 
 3. **Start the bot**:
@@ -72,22 +76,25 @@ GUID=1000
 
 ## Environment Variables
 
-| Variable            | Description                                      |
-| ------------------- | -----------------------------------------------  |
-| `DISCORD_TOKEN`     | Your Discord bot token.                          |
-| `RCONPWD`           | Password for Minecraft RCON.                     |
-| `MC_CONTAINER`      | Name of the Minecraft Docker container.          |
-| `MC_VOLUME`         | Docker volume for persistent data.               |
-| `MC_PORT_TCP`       | TCP port for the Minecraft server.               |
-| `MC_PORT_UDP`       | UDP port for the Minecraft server.               |
-| `MC_IMAGE`          | Docker image of the Minecraft server.            |
-| `TYPE`              | Server type (e.g., `vanilla`, `NEOFORGE`).       |
-| `VERSION`           | Minecraft version.                               |
-| `MODLOADER_VERSION` | Modloader version if using Forge/Fabric/Neoforge.|
-| `MEMORY`            | Maximum memory allocated to the server.          |
-| `PUID`              | User ID for file permissions inside container.   |
-| `GUID`              | Group ID for file permissions inside container.  |
-
+| Variable               | Description                                                          |
+| ---------------------- | -------------------------------------------------------------------  |
+| `DISCORD_TOKEN`        | Your Discord bot token.                                              |
+| `RCONPWD`              | Password for Minecraft RCON.                                         |
+| `MC_CONTAINER`         | Name of the Minecraft Docker container.                              |
+| `MC_VOLUME`            | Docker volume for persistent data.                                   |
+| `MC_PORT_TCP`          | TCP port for the Minecraft server.                                   |
+| `MC_PORT_UDP`          | UDP port for the Minecraft server.                                   |
+| `MC_IMAGE`             | Docker image of the Minecraft server.                                |
+| `TYPE`                 | Server type (e.g., `vanilla`, `NEOFORGE`).                           |
+| `VERSION`              | Minecraft version.                                                   |
+| `MODLOADER_VERSION`    | Modloader version if using Forge/Fabric/Neoforge.                    |
+| `MEMORY`               | Maximum memory allocated to the server.                              |
+| `PUID`                 | User ID for file permissions inside container.                       |
+| `GUID`                 | Group ID for file permissions inside container.                      |
+| `STARTUP_TIMEOUT`      | Time to wait for the server.                                         |
+| `STATUS`               | Extra var to prevent the server from starting while fixing things.   |
+| `WATCH_INTERVAL`       | Interval at which the system checks whether the server has gone down.|
+| `AUTOSTOP_TIMEOUT_EST` | The time after which the server shuts down if there are no players.  |
 ---
 
 ## Usage
